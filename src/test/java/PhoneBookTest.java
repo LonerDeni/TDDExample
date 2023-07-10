@@ -42,4 +42,16 @@ public class PhoneBookTest {
         // then:
         Assertions.assertEquals(expected, result);
     }
+
+    @Test
+    public void findContact() {
+        // given:
+        PhoneBook phoneBook = new PhoneBook();
+        String phoneNum = "7999999999";
+        String expected = "Sonya";
+        // when:
+        String result = phoneBook.findByNumber(phoneNum);
+        // then:
+        Assertions.assertEquals(expected, result);
+    }
 }
