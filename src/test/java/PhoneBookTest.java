@@ -127,7 +127,7 @@ public class PhoneBookTest {
         phoneBook.add("Semen","7999999922");
         phoneBook.add("Ira","79997776677");
         // when:
-        String result = phoneBook.findByNumber(name);
+        String result = phoneBook.findByName(name);
         // then:
         Assertions.assertEquals(expected, result);
     }

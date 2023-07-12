@@ -20,6 +20,8 @@ public class PhoneBook {
     }
 
     public String findByName(String name) {
-        return null;
+        return phoneB.entrySet().stream().filter(x -> x.getKey().equals(name))
+                .findFirst().map(Map.Entry::getValue)
+                .orElse(null);
     }
 }
