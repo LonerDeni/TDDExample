@@ -49,9 +49,48 @@ public class PhoneBookTest {
         PhoneBook phoneBook = new PhoneBook();
         String phoneNum = "7999999999";
         String expected = "Sonya";
+        phoneBook.add("Sonya","7999999999");
         // when:
         String result = phoneBook.findByNumber(phoneNum);
         // then:
         Assertions.assertEquals(expected, result);
+    }
+    @Test
+    public void findNoAddContact() {
+        // given:
+        PhoneBook phoneBook = new PhoneBook();
+        String phoneNum = "7999999999";
+        phoneBook.add("Ivan","79997776677");
+        // when:
+        String result = phoneBook.findByNumber(phoneNum);
+        // then:
+        Assertions.assertNull(result);
+    }
+
+    @Test
+    public void findTwoNumContact() {
+        // given:
+        PhoneBook phoneBook = new PhoneBook();
+        String phoneNum = "7999123488";
+        String expected = "Ivan";
+        phoneBook.add("Semen","7999999999");
+        phoneBook.add("Ivan","7999123488");
+        // when:
+        String result = phoneBook.findByNumber(phoneNum);
+        // then:
+        Assertions.assertEquals(expected, result);
+    }
+    @Test
+    public void findTwoSameNumber() {
+        // given:
+        PhoneBook phoneBook = new PhoneBook();
+        String phoneNum = "79991234455";
+        String expected = "Anna";
+        phoneBook.add("Anna","79991234455");
+        phoneBook.add("Lena","79991234455");
+        // when:
+        String result = phoneBook.findByNumber(phoneNum);
+        // then:
+        Assertions.assertNotEquals(expected, result);
     }
 }
