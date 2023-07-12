@@ -19,9 +19,12 @@ public class PhoneBook {
                 .orElse(null);
     }
 
-    public String findByName(String name) {
+    public  String findByName(String name) {
         return phoneB.entrySet().stream().filter(x -> x.getKey().equals(name))
                 .findFirst().map(Map.Entry::getValue)
                 .orElse(null);
+    }
+
+    public void printAllNames(){
     }
 }
