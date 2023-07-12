@@ -93,4 +93,42 @@ public class PhoneBookTest {
         // then:
         Assertions.assertNotEquals(expected, result);
     }
+
+    @Test
+    public void findNumberContact() {
+        // given:
+        PhoneBook phoneBook = new PhoneBook();
+        String name = "Sonya";
+        String expected = "7999999999";
+        phoneBook.add("Sonya","7999999999");
+        // when:
+        String result = phoneBook.findByName(name);
+        // then:
+        Assertions.assertEquals(expected, result);
+    }
+    @Test
+    public void findNoAddNumberContact() {
+        // given:
+        PhoneBook phoneBook = new PhoneBook();
+        String phoneName = "Anna";
+        phoneBook.add("Ivan","79997776677");
+        // when:
+        String result = phoneBook.findByName(phoneName);
+        // then:
+        Assertions.assertNull(result);
+    }
+
+    @Test
+    public void findTwoNumberContact() {
+        // given:
+        PhoneBook phoneBook = new PhoneBook();
+        String name = "Ira";
+        String expected = "79997776677";
+        phoneBook.add("Semen","7999999922");
+        phoneBook.add("Ira","79997776677");
+        // when:
+        String result = phoneBook.findByNumber(name);
+        // then:
+        Assertions.assertEquals(expected, result);
+    }
 }
